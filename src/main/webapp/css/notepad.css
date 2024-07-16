@@ -1,0 +1,295 @@
+	/* General layout and reset styles */
+	body {
+	    font-family: Arial, sans-serif;
+	    background-color: #191919; /* Set background color to black */
+	    color: #ffffff; /* Set text color to white */
+	    margin: 0;
+	    padding: 0;
+	}
+	
+	.container {
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    padding-top: 80px; /* Adjust based on your navbar height */
+	    min-height: 100vh;
+	}
+	/* Navbar styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2a2a2a; /* Navbar color */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+    border-bottom: 1px solid #555555; /* White bottom border */
+}
+
+/* Add a pseudo-element for the white outline */
+.navbar::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color:  #555555;
+    z-index: -1;
+}
+
+	
+	.navbar .left img {
+	    height: 32px;
+	}
+	
+	.navbar .middle {
+	    flex-grow: 1;
+	    text-align: center;
+	}
+	
+	.navbar .right {
+	    margin-left: auto;
+	}
+	
+	.navbar a {
+	    color: #ffffff;
+	    text-decoration: none;
+	    font-size: 16px;
+	    padding: 14px 20px;
+	    transition: background-color 0.3s, color 0.3s;
+	}
+	
+	.navbar a:hover {
+	    background-color: #555;
+	}
+	
+	/* Form container styling */
+	.form-container {
+	    width: 100%;
+	    max-width: 500px;
+	    background-color: #2a2a2a; /* Match card color with navbar */
+	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	    border-radius: 8px;
+	    margin: 20px auto;
+	    padding: 16px;
+	    text-align: center;
+	}
+	
+	.form-container h2 {
+	    font-size: 20px;
+	    margin-bottom: 10px;
+	}
+	
+	.form-container label {
+	    font-weight: bold;
+	    margin-bottom: 8px;
+	    display: block;
+	}
+	
+	.form-container input[type="text"] {
+	    width: calc(100% - 16px);
+	    padding: 8px;
+	    margin-bottom: 16px;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	}
+	
+	.form-container button {
+	    background-color: #007bff;
+	    color: white;
+	    border: none;
+	    padding: 10px 20px;
+	    border-radius: 4px;
+	    cursor: pointer;
+	    font-size: 16px;
+	}
+	
+	.form-container button:hover {
+	    background-color: #0056b3;
+	}
+	
+	/* Notepads container styling */
+	/* Notepads container styling */
+.notepads-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box; /* Ensure padding doesn't add to width */
+}
+
+.notepad {
+    width: calc(50% - 20px); /* Adjusted width to approximately 33.33% minus margins */
+    background-color: #2a2a2a;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 10px; /* Adjust margin for spacing */
+    padding: 16px;
+    box-sizing: border-box;
+    text-align: left;
+    border: 2px solid #555555;
+}
+
+
+.notepad h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.notepad ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.notepad li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.notepad li label {
+    flex-grow: 1;
+    margin-left: 8px;
+    word-wrap: break-word;
+    cursor: pointer;
+       margin-right: 5px; /* Adjusted margin right for spacing */
+}
+
+.notepad li a.edit-btn,
+.notepad li button.delete-btn {
+    color: #ffffff; /* Set button text color to white */
+    background-color: #007bff; /* Set button background color */
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 5px; /* Add margin-right for spacing */
+    
+}
+
+.notepad li a.edit-btn:hover,
+.notepad li button.delete-btn:hover {
+    background-color: #0056b3;
+}
+
+.notepad input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Modal styling */
+#editTaskModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2a2a2a; /* Match modal color with navbar */
+    color: #ffffff; /* Set text color to white */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    max-width: 400px; /* Limit the maximum width */
+    width: 100%; /* Ensure it takes full width up to the max-width */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+#editTaskModal .input-group {
+    margin-bottom: 16px;
+}
+
+#editTaskModal label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#editTaskModal input[type="text"] {
+    width: calc(100% - 20px); /* Adjust width with padding considered */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#editTaskModal button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#editTaskModal button:hover {
+    background-color: #0056b3;
+}
+
+/* Task completed styling */
+.notepad li.completed label {
+    text-decoration: line-through;
+    color: #808080; /* Gray color for completed tasks */
+}
+/* Delete Task Modal */
+#deleteTaskModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #2a2a2a; /* Match modal color with navbar */
+    color: #ffffff; /* Set text color to white */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    max-width: 400px; /* Limit the maximum width */
+    width: 100%; /* Ensure it takes full width up to the max-width */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+#deleteTaskModal .modal-content {
+    margin-bottom: 16px;
+}
+
+#deleteTaskModal p {
+    margin-bottom: 20px;
+}
+
+#deleteTaskModal button {
+    background-color: #dc3545; /* Red color for delete action */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#deleteTaskModal button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+.task-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.task-form .input-group {
+    margin-right: 3px; /* Adjust spacing between input fields */
+    flex-grow: 1; /* Allow input fields to grow and take up available space */
+}
+
+.task-form .input-group label {
+    margin-right: 3px; /* Adjust spacing between label and input field */
+}
+
